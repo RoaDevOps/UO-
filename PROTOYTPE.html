@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Puerto Nuevo · Centro de Rehabilitación</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --dark: #2E7268;
+      --sage: #7FA79E;
+      --sand: #E7E7E4;
+      --paper: #F5F5F3;
+      --gold: #2E7268;
+      --ink: #2A3A4A;
+      --line: rgba(46, 114, 104, 0.16);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Work Sans', sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.6;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: 'Fraunces', serif;
+      font-weight: 500;
+      color: var(--dark);
+      letter-spacing: -0.01em;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .wrap {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* Header */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      background: transparent;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    header.scrolled {
+      background: rgba(46, 114, 104, 0.97);
+      box-shadow: 0 2px 12px rgba(20, 40, 36, 0.18);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-wrap {
+      width: 100%;
+      margin: 0 auto;
+      padding: 14px clamp(20px, 4vw, 48px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .logo img {
+      height: 80px;
+      width: 80px;
+      border-radius: 50%;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 44px;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: #fff;
+      opacity: 0.9;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: opacity 0.2s, color 0.3s ease;
+    }
+
+    nav a:hover {
+      opacity: 1;
+    }
+
+    .nav-icon {
+      font-size: 1.15rem;
+      line-height: 1;
+    }
+
+    .nav-toggle {
+      display: none;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 11px 22px;
+      border-radius: 10px 10px 10px 2px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease, color 0.3s ease;
+    }
+
+    .btn-primary {
+      background: var(--dark);
+      color: var(--paper) !important;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(35, 54, 78, 0.25);
+    }
+
+    .btn-header {
+      background: #fff;
+      color: var(--dark) !important;
+    }
+
+    .btn-header:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--dark) !important;
+      border: 1.5px solid var(--line);
+    }
+
+    .btn-outline:hover {
+      background: rgba(46, 114, 104, 0.06);
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-start;
+      overflow: hidden;
+    }
+
+    .hero-banner {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-banner::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(20, 32, 29, 0.55) 0%, rgba(20, 32, 29, 0.25) 32%, rgba(20, 32, 29, 0.15) 55%, rgba(20, 32, 29, 0.5) 100%);
+    }
+
+    .hero-text {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 150px 28px 64px;
+      color: #fff;
+    }
+
+    .eyebrow {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--sage);
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    .hero-text .eyebrow {
+      color: #DCEAE7;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 4.4vw, 3.2rem);
+      line-height: 1.14;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .hero-text p {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.88);
+      max-width: 48ch;
+      margin: 0 auto 34px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-actions .btn {
+      padding: 14px 28px;
+      font-size: 0.95rem;
+    }
+
+    .hero-actions .btn-outline {
+      color: #fff !important;
+      border: 1.5px solid rgba(255, 255, 255, 0.6);
+    }
+
+    .hero-actions .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    section {
+      padding: 76px 0;
+    }
+
+    .section-head {
+      max-width: 640px;
+      margin-bottom: 48px;
+    }
+
+    .section-head .eyebrow {
+      margin-bottom: 12px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(1.7rem, 2.8vw, 2.3rem);
+    }
+
+    .section-head p {
+      color: rgba(42, 58, 74, 0.7);
+      margin-top: 14px;
+    }
+
+    /* About */
+    .about {
+      background: #7e3434;
+      color: var(--paper);
+    }
+
+    .about h2,
+    .about .eyebrow {
+      color: var(--paper);
+    }
+
+    .about .eyebrow {
+      color: #AEB9C4;
+    }
+
+    .about-image {
+      width: 100%;
+      height: 100%;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      min-height: 340px;
+      object-fit: cover;
+      border-radius: 14px;
+      display: block;
+      box-shadow: 0 10px 24px rgba(20, 40, 36, 0.25);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: stretch;
+    }
+
+    .about p {
+      color: rgba(245, 245, 243, 0.78);
+      margin-bottom: 16px;
+    }
+
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 8px;
+    }
+
+    .stat {
+      border-top: 1px solid rgba(245, 245, 243, 0.25);
+      padding-top: 14px;
+    }
+
+    .stat .num {
+      font-family: 'Fraunces', serif;
+      font-size: 2rem;
+      color: var(--paper);
+    }
+
+    .stat .label {
+      font-size: 0.82rem;
+      color: rgba(245, 245, 243, 0.65);
+      margin-top: 4px;
+    }
+
+    /* Programs */
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .program-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 30px 26px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .program-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px rgba(35, 54, 78, 0.1);
+    }
+
+    .program-card .icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: var(--sand);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      font-size: 1.2rem;
+    }
+
+    .program-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+    }
+
+    .program-card p {
+      font-size: 0.94rem;
+      color: rgba(42, 58, 74, 0.68);
+    }
+
+    /* Process */
+    .process {
+      background: var(--dark);
+      color: var(--paper);
+    }
+
+    .process .eyebrow,
+    .process .section-head h2 {
+      color: var(--paper);
+    }
+
+    .process .section-head p {
+      color: rgba(245, 245, 243, 0.75);
+    }
+
+    .process-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .process-item {
+      display: grid;
+      grid-template-columns: 64px 1fr;
+      gap: 20px;
+      padding: 26px 0;
+      border-bottom: 1px solid rgba(245, 245, 243, 0.2);
+    }
+
+    .process-item:last-child {
+      border-bottom: none;
+    }
+
+    .process-num {
+      font-family: 'Fraunces', serif;
+      font-size: 1.6rem;
+      color: var(--paper);
+      opacity: 0.55;
+    }
+
+    .process-item h3 {
+      font-size: 1.1rem;
+      margin-bottom: 6px;
+      color: var(--paper);
+    }
+
+    .process-item p {
+      color: rgba(245, 245, 243, 0.75);
+      font-size: 0.95rem;
+      max-width: 56ch;
+    }
+
+    /* Testimonials */
+    .testimonial {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 34px;
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .testimonial p {
+      font-family: 'Fraunces', serif;
+      font-size: 1.35rem;
+      color: var(--dark);
+      line-height: 1.5;
+      font-weight: 400;
+    }
+
+    .testimonial .who {
+      margin-top: 20px;
+      font-size: 0.88rem;
+      color: rgba(42, 58, 74, 0.6);
+    }
+
+    /* Contact */
+    .contact {
+      background: var(--dark);
+      color: var(--paper);
+    }
+
+    .contact .eyebrow {
+      color: #AEB9C4;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+    }
+
+    .contact h2 {
+      color: var(--paper);
+    }
+
+    .contact p {
+      color: rgba(245, 245, 243, 0.75);
+    }
+
+    .contact-info {
+      margin-top: 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .contact-info .row {
+      display: flex;
+      gap: 14px;
+      font-size: 0.95rem;
+    }
+
+    .contact-info .row span.label {
+      color: #AEB9C4;
+      min-width: 90px;
+      display: inline-block;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    input,
+    textarea {
+      background: rgba(245, 245, 243, 0.06);
+      border: 1px solid rgba(245, 245, 243, 0.25);
+      border-radius: 10px;
+      padding: 13px 16px;
+      color: var(--paper);
+      font-family: 'Work Sans', sans-serif;
+      font-size: 0.95rem;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: rgba(245, 245, 243, 0.45);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .btn-gold {
+      background: var(--paper);
+      color: var(--dark) !important;
+      border: none;
+      cursor: pointer;
+      font-family: 'Work Sans', sans-serif;
+    }
+
+    .btn-gold:hover {
+      background: var(--sand);
+    }
+
+    footer {
+      padding: 28px 0;
+      text-align: center;
+      font-size: 0.82rem;
+      color: rgba(42, 58, 74, 0.55);
+    }
+
+    @media (max-width: 860px) {
+      nav ul {
+        display: none;
+      }
+
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .programs-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stat-row {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .hero {
+        min-height: 78vh;
+      }
+
+      .hero-text {
+        padding: 120px 24px 48px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    section[id] {
+      scroll-margin-top: 84px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      * {
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <nav class="nav-wrap">
+      <a href="#" class="logo"><img src="LOGOTIPO.png" alt="Puerto Nuevo · Una Oportunidad Más"></a>
+      <ul>
+        <li><a href="#sobre-nosotros"><span class="nav-icon">🌿</span>Sobre nosotros</a></li>
+        <li><a href="#programas"><span class="nav-icon">🩺</span>Programas</a></li>
+        <li><a href="#proceso"><span class="nav-icon">🧭</span>Proceso</a></li>
+        <li><a href="#contacto"><span class="nav-icon">📞</span>Contacto</a></li>
+      </ul>
+      <a href="#contacto" class="btn btn-header">Hablar con alguien</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-banner">
+      <img src="BANNER NATURALE 2.jpeg" alt="Bosque con luz de sol entre los árboles, ambiente de calma y naturaleza">
+    </div>
+    <div class="hero-text">
+      <h1>Recupera tu vida, reconstruye tu futuro</h1>
+      <p>Una oportunidad más para empezar de nuevo, con tratamiento médico, terapia y un equipo que entiende que cada
+        historia es distinta.</p>
+      <div class="hero-actions">
+        <a href="#contacto" class="btn btn-primary">Agenda una consulta</a>
+        <a href="tel:+525500000000" class="btn btn-outline">Línea de atención 24/7</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="sobre-nosotros">
+    <div class="wrap about-grid">
+      <div class="about-image">
+        <img src="IMAGEN DE AYUDA.jpeg" alt="Ilustración de acompañamiento y apoyo en momentos difíciles">
+      </div>
+      <div>
+        <p>El centro de rehabilitacion "una oportunidad mas" es un lugar con la capacidad de ayudar,acompañar,y
+          rehabilitar en el proceso de recuperacion de la persona,especializados en la desintoxicacion del cuerpo debido
+          alas sustancias,el apoyo emocional y mental del proceso,terapia y seguimiento breve inclusive despues de
+          finalizar el proceso.
+
+
+        </p>Nuestro compromiso es absolutamente eficiente y con tacto para que de esa manera el paciente pueda sentirse
+        seguro,acompañado y sobretodo puede ver la mejora tanto fisicamente como mental
+
+        <div class="stat-row">
+          <div cSlass="stat">
+            <div class="num">12</div>
+            <div class="label">años de experiencia</div>
+          </div>
+          <div class="stat">
+            <div class="num">24/7</div>
+            <div class="label">atención disponible</div>
+          </div>
+          <div class="stat">
+            <div class="num">100%</div>
+            <div class="label">confidencial</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="programas">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Programas</div>
+        <h2>Un tratamiento adaptado a cada etapa</h2>
+        <p>Desde la desintoxicación hasta el acompañamiento después del alta, cada programa está diseñado para sostener
+          el proceso completo.</p>
+      </div>
+      <div class="programs-grid">
+        <div class="program-card">
+          <div class="icon">🌿</div>
+          <h3>Desintoxicación médica</h3>
+          <p>Proceso supervisado por personal médico las 24 horas, para manejar el retiro de forma segura y con el menor
+            malestar posible.</p>
+        </div>
+        <div class="program-card">
+          <div class="icon">🏠</div>
+          <h3>Tratamiento residencial</h3>
+          <p>Estancia en un entorno seguro y estructurado, con terapia individual, grupal y actividades de reinserción
+            diaria.</p>
+        </div>
+        <div class="program-card">
+          <div class="icon">🤝</div>
+          <h3>Programa ambulatorio</h3>
+          <p>Sesiones de terapia y seguimiento para quienes continúan con su vida diaria mientras avanzan en su
+            recuperación.</p>
+        </div>
+        <div class="program-card">
+          <div class="icon">👪</div>
+          <h3>Terapia familiar</h3>
+          <p>Espacios de trabajo con familiares, porque la recuperación también involucra a quienes rodean al paciente.
+          </p>
+        </div>
+        <div class="program-card">
+          <div class="icon">🧭</div>
+          <h3>Seguimiento post-alta</h3>
+          <p>Acompañamiento continuo durante los primeros meses fuera del centro, para sostener lo avanzado.</p>
+        </div>
+        <div class="program-card">
+          <div class="icon">💬</div>
+          <h3>Grupos de apoyo</h3>
+          <p>Encuentros semanales entre pacientes y egresados para compartir experiencias y fortalecer la red de apoyo.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="process" id="proceso">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Proceso de admisión</div>
+        <h2>Cómo empezar</h2>
+        <p>Cuatro pasos, del primer contacto al ingreso.</p>
+      </div>
+      <div class="process-list">
+        <div class="process-item">
+          <div class="process-num">01</div>
+          <div>
+            <h3>Primer contacto</h3>
+            <p>Llamas o escribes, y un consejero te escucha y responde tus preguntas sin compromiso.</p>
+          </div>
+        </div>
+        <div class="process-item">
+          <div class="process-num">02</div>
+          <div>
+            <h3>Evaluación</h3>
+            <p>Un profesional realiza una valoración clínica para entender la situación y recomendar el programa
+              adecuado.</p>
+          </div>
+        </div>
+        <div class="process-item">
+          <div class="process-num">03</div>
+          <div>
+            <h3>Plan personalizado</h3>
+            <p>Diseñamos un plan de tratamiento junto contigo y tu familia, con metas claras.</p>
+          </div>
+        </div>
+        <div class="process-item">
+          <div class="process-num">04</div>
+          <div>
+            <h3>Ingreso</h3>
+            <p>Coordinamos fecha, traslado si es necesario, y comienza el acompañamiento.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="testimonial">
+        <p>"CAERAS Y LLEGARAS ALO MAS PROFUNDO,NO OBSTANTE EL RESURGIR SERA MONUMENTAL,NO ES COMO EMPIEZA,ES COMO
+          TERMINA."</p>
+        <div class="who">— Paciente egresado, programa residencial</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contacto">
+    <div class="wrap contact-grid">
+      <div>
+        <div class="eyebrow">Contacto</div>
+        <h2>Da el primer paso hoy</h2>
+        <p>Escríbenos o llama a nuestra línea de atención. Todo lo que compartas es confidencial.</p>
+        <div class="contact-info">
+          <div class="row"><span class="label">Teléfono</span> +52 55 0000 0000</div>
+          <div class="row"><span class="label">Correo</span> contacto@puertonuevo.mx</div>
+          <div class="row"><span class="label">Dirección</span> Ciudad de México, México</div>
+        </div>
+      </div>
+      <form onsubmit="event.preventDefault(); alert('Gracias, nos pondremos en contacto pronto.');">
+        <input type="text" placeholder="Nombre" required>
+        <input type="tel" placeholder="Teléfono" required>
+        <textarea placeholder="Cuéntanos brevemente tu situación (opcional)"></textarea>
+        <button type="submit" class="btn btn-gold">Enviar</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Puerto Nuevo · Centro de Rehabilitación · Este sitio es una plantilla de ejemplo
+  </footer>
+
+  <script>
+    const header = document.querySelector('header');
+    const onScroll = () => {
+      if (window.scrollY > 40) header.classList.add('scrolled');
+      else header.classList.remove('scrolled');
+    };
+    window.addEventListener('scroll', onScroll);
+    onScroll();
+  </script>
+
+</body>
+
+</html>
