@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto· Puerto Nuevo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="nav-wrap">
+            <a href="index.html" class="logo">
+                <img src="imagenes de UO+web/LOGO CLINICA.png" alt="Puerto Nuevo · Una Oportunidad Más">
+            </a>
+            <ul>
+                <li><a href="index.html"><span class="nav-icon">🏠</span>Inicio</a></li>
+                <li><a href="sobre-nosotros.html"><span class="nav-icon">🌿</span>Sobre nosotros</a></li>
+                <li><a href="programas.html"><span class="nav-icon">🩺</span>Programas</a></li>
+                <li><a href="proceso.html"><span class="nav-icon">🧭</span>Proceso</a></li>
+                <li><a href="contacto.html"><span class="nav-icon">📞</span>Contacto</a></li>
+            </ul>
+            <a href="contacto.html" class="btn btn-header">Hablar con alguien</a>
+        </nav>
+    </header>
+
+    <section class="contact" id="contacto">
+        <div class="wrap contact-grid">
+            <div>
+                <div class="eyebrow">Contacto</div>
+                <h2>Da el primer paso hoy</h2>
+                <p>Escríbenos o llama a nuestra línea de atención. Todo lo que compartas es confidencial.</p>
+                <div class="contact-info">
+                    <div class="row"><span class="label">Teléfono</span> +52 55 0000 0000</div>
+                    <div class="row"><span class="label">Correo</span> contacto@puertonuevo.mx</div>
+                    <div class="row"><span class="label">Dirección</span> Ciudad de México, México</div>
+                </div>
+            </div>
+            <form id="form-contacto"> <input type="text" placeholder="Nombre" required>
+                <input type="tel" placeholder="Teléfono" required>
+                <textarea placeholder="Cuéntanos brevemente tu situación (opcional)"></textarea>
+                <button type="submit" class="btn btn-gold">Enviar</button>
+                <p id="form-status" style="margin-top: 10px; font-size: 0.9rem;"></p>
+            </form>
+        </div>
+    </section> <!-- AQUÍ VA EL CONTENIDO ESPECÍFICO DE CADA SECCIÓN -->
+
+    <footer>
+        © 2026 Puerto Nuevo · Centro de Rehabilitación · Este sitio es una plantilla de ejemplo
+    </footer>
+
+    <script>
+        const form = document.getElementById('form-contacto');
+        const status = document.getElementById('form-status');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const nombre = form.querySelector('input[type="text"]').value;
+            const telefono = form.querySelector('input[type="tel"]').value;
+            const mensaje = form.querySelector('textarea').value;
+
+            status.textContent = 'Enviando...';
+
+            try {
+                const respuesta = await fetch('/api/contacto', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ nombre, telefono, mensaje })
+                });
+
+                const datos = await respuesta.json();
+
+                if (datos.ok) {
+                    status.textContent = datos.mensaje;
+                    status.style.color = '#B7E4D8';
+                    form.reset();
+                } else {
+                    status.textContent = datos.error || 'Ocurrió un error, intenta de nuevo.';
+                    status.style.color = '#c0392b';
+                }
+            } catch (error) {
+                status.textContent = 'No se pudo conectar con el servidor.';
+                status.style.color = '#c0392b';
+            }
+        });
+        const header = document.querySelector('header');
+        const onScroll = () => {
+            if (window.scrollY > 40) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+        };
+        window.addEventListener('scroll', onScroll);
+        onScroll();
+    </script>
+
+</body>
+
+</html>

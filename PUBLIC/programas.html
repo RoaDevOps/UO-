@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programas · Puerto Nuevo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="nav-wrap">
+            <a href="index.html" class="logo">
+                <img src="imagenes de UO+web/LOGO CLINICA.png" alt="Puerto Nuevo · Una Oportunidad Más">
+            </a>
+            <ul>
+                <li><a href="index.html"><span class="nav-icon">🏠</span>Inicio</a></li>
+                <li><a href="sobre-nosotros.html"><span class="nav-icon">🌿</span>Sobre nosotros</a></li>
+                <li><a href="programas.html"><span class="nav-icon">🩺</span>Programas</a></li>
+                <li><a href="proceso.html"><span class="nav-icon">🧭</span>Proceso</a></li>
+                <li><a href="contacto.html"><span class="nav-icon">📞</span>Contacto</a></li>
+            </ul>
+            <a href="contacto.html" class="btn btn-header">Hablar con alguien</a>
+        </nav>
+    </header>
+
+    <section id="programas">
+        <div class="wrap">
+            <div class="section-head">
+                <div class="eyebrow">Programas</div>
+                <h2>Un tratamiento adaptado a cada etapa</h2>
+                <p>Desde la desintoxicación hasta el acompañamiento después del alta, cada programa está diseñado para
+                    sostener
+                    el proceso completo.</p>
+            </div>
+            <div class="programs-grid">
+                <div class="program-card">
+                    <div class="icon">🌿</div>
+                    <h3>Desintoxicación médica</h3>
+                    <p>Proceso supervisado por personal médico las 24 horas, para manejar el retiro de forma segura y
+                        con el menor
+                        malestar posible.</p>
+                </div>
+                <div class="program-card">
+                    <div class="icon">🏠</div>
+                    <h3>Tratamiento residencial</h3>
+                    <p>Estancia en un entorno seguro y estructurado, con terapia individual, grupal y actividades de
+                        reinserción
+                        diaria.</p>
+                </div>
+                <div class="program-card">
+                    <div class="icon">🤝</div>
+                    <h3>Programa ambulatorio</h3>
+                    <p>Sesiones de terapia y seguimiento para quienes continúan con su vida diaria mientras avanzan en
+                        su
+                        recuperación.</p>
+                </div>
+                <div class="program-card">
+                    <div class="icon">👪</div>
+                    <h3>Terapia familiar</h3>
+                    <p>Espacios de trabajo con familiares, porque la recuperación también involucra a quienes rodean al
+                        paciente.
+                    </p>
+                </div>
+                <div class="program-card">
+                    <div class="icon">🧭</div>
+                    <h3>Seguimiento post-alta</h3>
+                    <p>Acompañamiento continuo durante los primeros meses fuera del centro, para sostener lo avanzado.
+                    </p>
+                </div>
+                <div class="program-card">
+                    <div class="icon">💬</div>
+                    <h3>Grupos de apoyo</h3>
+                    <p>Encuentros semanales entre pacientes y egresados para compartir experiencias y fortalecer la red
+                        de apoyo.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section> <!-- AQUÍ VA EL CONTENIDO ESPECÍFICO DE CADA SECCIÓN -->
+
+    <footer>
+        © 2026 Puerto Nuevo · Centro de Rehabilitación · Este sitio es una plantilla de ejemplo
+    </footer>
+
+    <script>
+        const header = document.querySelector('header');
+        const onScroll = () => {
+            if (window.scrollY > 40) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+        };
+        window.addEventListener('scroll', onScroll);
+        onScroll();
+    </script>
+
+</body>
+
+</html>
