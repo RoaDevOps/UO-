@@ -1,9 +1,10 @@
+require('dotenv').config();
 const express = require('express');
-const fs = require('fs');
-const path = require('path');
+const { Resend } = require('resend');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 // Le dice a Express que sirva todo lo que está en la carpeta "public"
 app.use(express.static('public'));
@@ -12,37 +13,33 @@ app.use(express.static('public'));
 app.use(express.json());
 
 // Ruta donde llegará el formulario de contacto
-app.post('/api/contacto', (req, res) => {
+app.post('/api/contacto', async (req, res) => {
     const { nombre, telefono, mensaje } = req.body;
 
     if (!nombre || !telefono) {
         return res.status(400).json({ ok: false, error: 'Faltan datos obligatorios.' });
     }
 
-    const registro = {
-        fecha: new Date().toLocaleString('es-MX'),
-        nombre,
-        telefono,
-        mensaje: mensaje || '(sin mensaje)'
-    };
+    try {
+        await resend.emails.send({
+            from: 'Puerto Nuevo <onboarding@resend.dev>',
+            to: ['poafromu@gmail.com'],
+            subject: `Nuevo contacto: ${nombre}`,
+            html: `
+                <h2>Nuevo mensaje desde el formulario de contacto</h2>
+                <p><strong>Nombre:</strong> ${nombre}</p>
+                <p><strong>Teléfono:</strong> ${telefono}</p>
+                <p><strong>Mensaje:</strong> ${mensaje || '(sin mensaje)'}</p>
+                <p><small>Fecha: ${new Date().toLocaleString('es-MX')}</small></p>
+            `
+        });
 
-    const linea = JSON.stringify(registro) + '\n';
-    const archivo = path.join(__dirname, 'data', 'contactos.jsonl');
-
-    // Crea la carpeta "data" si no existe
-    if (!fs.existsSync(path.join(__dirname, 'data'))) {
-        fs.mkdirSync(path.join(__dirname, 'data'));
-    }
-
-    // Agrega el nuevo contacto al final del archivo
-    fs.appendFile(archivo, linea, (err) => {
-        if (err) {
-            console.error('Error guardando el contacto:', err);
-            return res.status(500).json({ ok: false, error: 'No se pudo guardar.' });
-        }
-        console.log('✅ Nuevo contacto guardado:', nombre);
+        console.log('✅ Correo enviado, contacto de:', nombre);
         res.json({ ok: true, mensaje: 'Gracias, nos pondremos en contacto pronto.' });
-    });
+    } catch (err) {
+        console.error('Error enviando el correo:', err);
+        res.status(500).json({ ok: false, error: 'No se pudo enviar el mensaje.' });
+    }
 });
 
 app.listen(PORT, () => {
