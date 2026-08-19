@@ -753,3 +753,50 @@ section[id] {
         max-width: 100%;
     }
 }
+/* Menú hamburguesa (móvil) */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.8rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 4px 8px;
+}
+
+@media (max-width: 860px) {
+    .nav-wrap {
+        position: relative;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    nav ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--dark);
+        flex-direction: column;
+        gap: 0;
+        padding: 8px 24px 16px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    nav ul.open {
+        display: flex;
+    }
+
+    nav ul li {
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    nav ul li:last-child {
+        border-bottom: none;
+    }
+}
