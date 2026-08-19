@@ -17,7 +17,8 @@
     <header>
         <nav class="nav-wrap">
             <a href="index.html" class="logo">
-                <img src="imagenes-uomasweb/logo-clinica.png" alt="Puerto Nuevo · Una Oportunidad Más">
+                <img src="imagenes-uomasweb/LOGOTIPO DE LA CLINICA PLUS.svg"
+                    alt="Casa cristiana de rehabilitación y desintoxicación · Una Oportunidad Más">
             </a>
             <ul>
                 <li><a href="index.html"><span class="nav-icon">🏠</span>Inicio</a></li>
@@ -54,52 +55,51 @@
     </section> <!-- AQUÍ VA EL CONTENIDO ESPECÍFICO DE CADA SECCIÓN -->
 
     <footer>
-        © 2026 Puerto Nuevo · Centro de Rehabilitación · Este sitio es una plantilla de ejemplo
-    </footer>
+        © 2026 Una oportunidad mas · Casa cristiana de rehabilitación y desintoxicación ·
 
-    <script>
-        const form = document.getElementById('form-contacto');
-        const status = document.getElementById('form-status');
+        <script>
+            const form = document.getElementById('form-contacto');
+            const status = document.getElementById('form-status');
 
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
 
-            const nombre = form.querySelector('input[type="text"]').value;
-            const telefono = form.querySelector('input[type="tel"]').value;
-            const mensaje = form.querySelector('textarea').value;
+                const nombre = form.querySelector('input[type="text"]').value;
+                const telefono = form.querySelector('input[type="tel"]').value;
+                const mensaje = form.querySelector('textarea').value;
 
-            status.textContent = 'Enviando...';
+                status.textContent = 'Enviando...';
 
-            try {
-                const respuesta = await fetch('/api/contacto', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ nombre, telefono, mensaje })
-                });
+                try {
+                    const respuesta = await fetch('/api/contacto', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ nombre, telefono, mensaje })
+                    });
 
-                const datos = await respuesta.json();
+                    const datos = await respuesta.json();
 
-                if (datos.ok) {
-                    status.textContent = datos.mensaje;
-                    status.style.color = '#B7E4D8';
-                    form.reset();
-                } else {
-                    status.textContent = datos.error || 'Ocurrió un error, intenta de nuevo.';
+                    if (datos.ok) {
+                        status.textContent = datos.mensaje;
+                        status.style.color = '#B7E4D8';
+                        form.reset();
+                    } else {
+                        status.textContent = datos.error || 'Ocurrió un error, intenta de nuevo.';
+                        status.style.color = '#c0392b';
+                    }
+                } catch (error) {
+                    status.textContent = 'No se pudo conectar con el servidor.';
                     status.style.color = '#c0392b';
                 }
-            } catch (error) {
-                status.textContent = 'No se pudo conectar con el servidor.';
-                status.style.color = '#c0392b';
-            }
-        });
-        const header = document.querySelector('header');
-        const onScroll = () => {
-            if (window.scrollY > 40) header.classList.add('scrolled');
-            else header.classList.remove('scrolled');
-        };
-        window.addEventListener('scroll', onScroll);
-        onScroll();
-    </script>
+            });
+            const header = document.querySelector('header');
+            const onScroll = () => {
+                if (window.scrollY > 40) header.classList.add('scrolled');
+                else header.classList.remove('scrolled');
+            };
+            window.addEventListener('scroll', onScroll);
+            onScroll();
+        </script>
 
 </body>
 
