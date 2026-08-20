@@ -800,3 +800,80 @@ section[id] {
         border-bottom: none;
     }
 }
+
+/* Ajustes específicos para celulares angostos */
+@media (max-width: 480px) {
+    .wrap {
+        padding: 0 18px;
+    }
+
+    section {
+        padding: 48px 0;
+    }
+
+    .section-head {
+        margin-bottom: 32px;
+    }
+
+    .hero-text {
+        padding: 100px 18px 40px;
+    }
+
+    .hero h1 {
+        font-size: 1.9rem;
+        margin-bottom: 14px;
+    }
+
+    .hero-text p {
+        font-size: 1rem;
+        margin-bottom: 24px;
+    }
+
+    .nav-wrap {
+        padding: 12px 16px;
+    }
+
+    .logo img {
+        height: 56px;
+        width: 56px;
+    }
+
+    .program-card,
+    .info-card,
+    .testimonial {
+        padding: 22px 18px;
+    }
+
+    .about-grid,
+    .contact-grid {
+        gap: 28px;
+    }
+
+    .stat-row {
+        gap: 14px;
+    }
+
+    .stat .num {
+        font-size: 1.5rem;
+    }
+
+    .process-item {
+        grid-template-columns: 44px 1fr;
+        gap: 12px;
+        padding: 18px 0;
+    }
+
+    .process-num {
+        font-size: 1.2rem;
+    }
+
+    form {
+        gap: 10px;
+    }
+
+    input,
+    textarea {
+        padding: 11px 14px;
+        font-size: 0.9rem;
+    }
+}
