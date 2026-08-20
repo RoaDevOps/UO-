@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Puerto Nuevo · Centro de Rehabilitación</title>
+  <title>Una oportunidad mas · Casa de rehabilitación cristiana · </title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link
     href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap"
@@ -18,7 +18,8 @@
   <header>
     <nav class="nav-wrap">
       <a href="index.html" class="logo">
-        <img src="imagenes-uomasweb/logo-clinica.png" alt="Puerto Nuevo · Una Oportunidad Más">
+        <img src="imagenes-uomasweb/LOGOTIPO DE LA CLINICA PLUS.svg"
+          alt="Casa cristiana de rehabilitación y desintoxicación · Una Oportunidad Más">
       </a>
       <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">☰</button>
       <ul id="navMenu">
@@ -34,7 +35,7 @@
 
   <section class="hero">
     <div class="hero-banner">
-      <img src="imagenes-uomasweb/portada-clinica.png" class="slide"
+      <img src="imagenes-uomasweb/BANNER CLINICA PLUS.jpeg" class="slide"
         alt="Fachada de la clínica Puerto Nuevo, un lugar seguro y acogedor">
       <img src="imagenes-uomasweb/foto_cocina_12.png" class="slide"
         alt="Cocina de la clínica Puerto Nuevo, ambiente cálido y acogedor">
@@ -53,9 +54,486 @@
       </div>
     </div>
   </section>
+  <!-- =========================================================
+     SECCIÓN DE BIENVENIDA
+========================================================= -->
+
+  <style>
+    /* ================================
+     SECCIÓN PRINCIPAL
+  ================================= */
+
+    .bienvenida {
+      position: relative;
+      padding: 90px 20px;
+      background: linear-gradient(135deg,
+          #f5f7f6 0%,
+          #e9efed 100%);
+      overflow: hidden;
+    }
+
+
+    /* ================================
+     DECORACIONES DEL FONDO
+  ================================= */
+
+    .bienvenida::before {
+      content: "";
+      position: absolute;
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      background: rgba(44, 95, 93, 0.08);
+      top: -180px;
+      left: -150px;
+    }
+
+    .bienvenida::after {
+      content: "";
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: rgba(44, 95, 93, 0.06);
+      bottom: -150px;
+      right: -100px;
+    }
+
+
+    /* ================================
+     CONTENEDOR
+  ================================= */
+
+    .bienvenida-contenedor {
+      position: relative;
+      z-index: 2;
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+
+    /* ================================
+     ETIQUETA SUPERIOR
+  ================================= */
+
+    .bienvenida-etiqueta {
+      display: inline-block;
+      margin-bottom: 15px;
+      padding: 7px 18px;
+      border-radius: 30px;
+      background: rgba(44, 95, 93, 0.1);
+      color: #2c5f5d;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+
+    /* ================================
+     TÍTULO
+  ================================= */
+
+    .bienvenida h2 {
+      margin: 0;
+      color: #1a3c3a;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+    }
+
+
+    /* ================================
+     LÍNEA DECORATIVA
+  ================================= */
+
+    .titulo-linea {
+      width: 70px;
+      height: 3px;
+      margin: 18px auto 45px;
+      background: #c4a45b;
+      border-radius: 10px;
+    }
+
+
+    /* ================================
+     GALERÍA DE IMÁGENES
+  ================================= */
+
+    .galeria-bienvenida {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 25px;
+      margin-bottom: 55px;
+    }
+
+
+    /* ================================
+     TARJETAS DE IMAGEN
+  ================================= */
+
+    .imagen-card {
+      width: 230px;
+      height: 170px;
+      overflow: hidden;
+      border-radius: 18px;
+      background: #ffffff;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+      transition: all 0.35s ease;
+    }
+
+
+    /* Imagen central destacada */
+
+    .imagen-central {
+      width: 260px;
+      height: 190px;
+      transform: translateY(-12px);
+    }
+
+
+    /* ================================
+     IMÁGENES
+  ================================= */
+
+    .imagen-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+
+    /* ================================
+     EFECTOS HOVER
+  ================================= */
+
+    .imagen-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.20);
+    }
+
+    .imagen-central:hover {
+      transform: translateY(-20px);
+    }
+
+    .imagen-card:hover img {
+      transform: scale(1.08);
+    }
+
+
+    /* ================================
+     TEXTO
+  ================================= */
+
+    .bienvenida-texto {
+      max-width: 780px;
+      margin: 0 auto;
+      color: #4a5553;
+      font-size: 1.08rem;
+      line-height: 1.9;
+    }
+
+
+    /* Párrafos */
+
+    .bienvenida-texto p {
+      margin: 0 0 18px;
+    }
+
+
+    /* Primer párrafo destacado */
+
+    .bienvenida-texto p:first-child {
+      color: #1a3c3a;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+
+    /* ================================
+     BOTÓN
+  ================================= */
+
+    .boton-bienvenida {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 20px;
+      padding: 13px 24px;
+      border-radius: 30px;
+      background: #1a3c3a;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 20px rgba(26, 60, 58, 0.2);
+    }
+
+
+    .boton-bienvenida span {
+      font-size: 1.2rem;
+      transition: transform 0.3s ease;
+    }
+
+
+    .boton-bienvenida:hover {
+      background: #2c5f5d;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 25px rgba(26, 60, 58, 0.3);
+    }
+
+
+    .boton-bienvenida:hover span {
+      transform: translateX(5px);
+    }
+
+
+    /* ================================
+     RESPONSIVE - TABLETS
+  ================================= */
+
+    @media (max-width: 900px) {
+
+      .galeria-bienvenida {
+        gap: 18px;
+      }
+
+      .imagen-card {
+        width: 200px;
+        height: 155px;
+      }
+
+      .imagen-central {
+        width: 220px;
+        height: 170px;
+      }
+
+    }
+
+
+    /* ================================
+     RESPONSIVE - CELULARES
+  ================================= */
+
+    @media (max-width: 768px) {
+
+      .bienvenida {
+        padding: 65px 18px;
+      }
+
+
+      .bienvenida h2 {
+        font-size: 2rem;
+        letter-spacing: 3px;
+      }
+
+
+      .bienvenida-etiqueta {
+        font-size: 0.75rem;
+        letter-spacing: 1.5px;
+      }
+
+
+      .titulo-linea {
+        margin-bottom: 35px;
+      }
+
+
+      .galeria-bienvenida {
+        flex-direction: column;
+        gap: 20px;
+        margin-bottom: 40px;
+      }
+
+
+      .imagen-card,
+      .imagen-central {
+        width: 90%;
+        max-width: 330px;
+        height: 200px;
+        transform: none;
+      }
+
+
+      .imagen-central:hover {
+        transform: translateY(-8px);
+      }
+
+
+      .bienvenida-texto {
+        font-size: 1rem;
+        line-height: 1.8;
+      }
+
+
+      .bienvenida-texto p:first-child {
+        font-size: 1.1rem;
+      }
+
+    }
+
+
+    /* ================================
+     CELULARES PEQUEÑOS
+  ================================= */
+
+    @media (max-width: 480px) {
+
+      .bienvenida {
+        padding: 55px 15px;
+      }
+
+
+      .bienvenida h2 {
+        font-size: 1.7rem;
+        letter-spacing: 2px;
+      }
+
+
+      .imagen-card,
+      .imagen-central {
+        width: 100%;
+        height: 190px;
+      }
+
+
+      .bienvenida-texto {
+        font-size: 0.95rem;
+      }
+
+
+      .boton-bienvenida {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+      }
+
+    }
+
+    /* =================================
+   RAMITA DECORATIVA
+================================= */
+
+    .decoracion-ramita {
+      position: absolute;
+      right: -40px;
+      bottom: -30px;
+      width: 300px;
+      opacity: 0.65;
+      z-index: 1;
+      pointer-events: none;
+    }
+  </style>
+
+
+  <!-- =========================================================
+     HTML DE LA SECCIÓN
+========================================================= -->
+
+  <section class="bienvenida">
+    <img src="imagenes-uomasweb/FLOR 1.png" class="decoracion-ramita" alt="">
+    <div class="bienvenida-contenedor">
+
+      <!-- Etiqueta superior -->
+      <span class="bienvenida-etiqueta">
+        Un nuevo comienzo
+      </span>
+
+
+      <!-- Título -->
+      <h2>
+        Bienvenidos
+      </h2>
+
+
+      <!-- Línea decorativa -->
+      <div class="titulo-linea"></div>
+
+
+      <!-- =====================================================
+         GALERÍA
+    ====================================================== -->
+
+      <div class="galeria-bienvenida">
+
+        <!-- Imagen 1 -->
+        <div class="imagen-card">
+
+          <img src="imagenes-uomasweb/IMAGEN PEQUEÑA 1.jpeg" alt="Nuestra casa de rehabilitación">
+
+        </div>
+
+
+        <!-- Imagen central -->
+        <div class="imagen-card imagen-central">
+
+          <img src="imagenes-uomasweb/IMAGEN PEQUEÑA 2.jpeg" alt="Esperanza y recuperación">
+
+        </div>
+
+
+        <!-- Imagen 3 -->
+        <div class="imagen-card">
+
+          <img src="imagenes-uomasweb/IMAGEN PEQUEÑA 3.jpeg" alt="Acompañamiento y fe">
+
+        </div>
+
+      </div>
+
+
+      <!-- =====================================================
+         TEXTO DE BIENVENIDA
+    ====================================================== -->
+
+      <div class="bienvenida-texto">
+
+        <p>
+          Les damos la bienvenida a la página oficial de nuestra
+          casa cristiana de rehabilitación y desintoxicación.
+        </p>
+
+
+        <p>
+          En nuestra clínica de desintoxicación creemos que
+          siempre es posible comenzar de nuevo. Brindamos un
+          tratamiento especializado para personas que enfrentan
+          problemas de adicción al alcohol, las drogas y otras
+          dependencias, ofreciendo un espacio seguro, profesional
+          y humano.
+        </p>
+
+
+        <p>
+          Siéntase libre de explorar nuestro sitio web para conocer
+          más sobre nuestros programas, nuestro proceso de admisión
+          y la forma en que podemos acompañarle durante este nuevo
+          comienzo.
+        </p>
+
+
+        <!-- Botón -->
+        <a href="#programas" class="boton-bienvenida">
+          Conoce nuestros programas
+          <span>→</span>
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+  </div>
+  </section>
   <section class="wrap">
     <div class="section-head" style="text-align: center; margin: 0 auto 48px; max-width: 680px;">
-      <div class="eyebrow" style="text-align: center;">La realidad</div>
+      <div class="eyebrow" style="text-align: center;"> </div>
       <h2>Por qué las adicciones son peligrosas</h2>
       <p>Entender el riesgo es el primer paso para pedir ayuda a tiempo.</p>
     </div>
@@ -141,7 +619,7 @@
       <div class="testimonial">
         <p>"CAERAS Y LLEGARAS ALO MAS PROFUNDO,NO OBSTANTE EL RESURGIR SERA MONUMENTAL,NO ES COMO EMPIEZA,ES COMO
           TERMINA."</p>
-        <div class="who">— Paciente egresado, programa residencial</div>
+        <div class="who">— </div>
       </div>
     </div>
   </section>
@@ -149,7 +627,7 @@
 
 
   <footer>
-    © 2026 Puerto Nuevo · Centro de Rehabilitación · Este sitio es una plantilla de ejemplo
+    © 2026 Una oportunidad mas · Casa cristiana de rehabilitación y desintoxicación ·
   </footer>
 
   <script>
