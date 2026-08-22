@@ -50,7 +50,8 @@
         historia es distinta.</p>
       <div class="hero-actions">
         <a href="contacto.html" class="btn btn-primary">Agenda una consulta</a>
-        <a href="https://wa.me/525523808757" target="_blank" rel="noopener" class="btn btn-outline">Línea de atención 24/7</a>
+        <a href="https://wa.me/525523808757" target="_blank" rel="noopener" class="btn btn-outline">Línea de atención
+          24/7</a>
       </div>
     </div>
   </section>
@@ -182,8 +183,17 @@
       overflow: hidden;
       border-radius: 18px;
       background: #ffffff;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-      transition: all 0.35s ease;
+
+      border: 2px solid rgba(196, 164, 91, 0.35);
+
+      box-shadow:
+        0 12px 25px rgba(0, 0, 0, 0.12),
+        0 4px 10px rgba(44, 95, 93, 0.08);
+
+      transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease,
+        border-color 0.4s ease;
     }
 
 
@@ -223,7 +233,9 @@
     }
 
     .imagen-card:hover img {
-      transform: scale(1.08);
+      transform: scale(1.06);
+      filter: brightness(1.05);
+    }
     }
 
 
@@ -437,6 +449,7 @@
 ========================================================= -->
 
   <section class="bienvenida">
+    <img src="imagenes-uomasweb/FLOR 2.png" class="decoracion-ramita" alt="">
     <div class="bienvenida-contenedor">
 
       <!-- Etiqueta superior -->
@@ -452,8 +465,9 @@
 
 
       <!-- Línea decorativa -->
-      <div class="titulo-linea"></div>
-
+      <div class="titulo-linea">
+        <span>✦</span>
+      </div>
 
       <!-- =====================================================
          GALERÍA
@@ -527,8 +541,6 @@
 
     </div>
 
-  </section>
-  </div>
   </section>
   <section class="wrap">
     <div class="section-head" style="text-align: center; margin: 0 auto 48px; max-width: 680px;">
